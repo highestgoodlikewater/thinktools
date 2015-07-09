@@ -1,0 +1,35 @@
+<div id="top_i">
+    <span><b>thinkspider</b><br />
+    </span>
+</div>
+<div id="top">
+    <div id="index_left"></div><div id="index">
+        <a id="home" href="<php>U('/Home/Index/index')</php>"></a>
+        <a class="index_a" href="preg_list.php">规则列表</a>
+        <a class="index_a" href="data_list.php">数据管理</a>
+        <a class="index_a" href="setup.php">程序设置</a>
+        <a class="index_a" href="help_list.php">帮助中心</a>       
+        <form id="index_search" action="data_list.php">
+            <div></div>
+            <input id="keyword" name="keyword" value="<?php echo g('keyword')?>"/>
+            <a id="search"></a>
+        </form>
+    </div><div id="index_right"></div>
+    <div id="index_bt">
+        <div id="index_b_l"></div><div id="index_b_c">
+            <a href="<php>U('Home/Index/index')</php>">首 页</a>
+            <notempty name="nav">
+                <foreach name="nav" item="vo" key="k" >
+                    <span>＞</span><a href="{$vo}">{$k}</a>
+                </foreach>
+            </notempty>
+        </div><div id="index_b_r"></div>
+    </div>
+</div>
+<script>
+    $('#search').click(function () {
+        if ($('#keyword').val()) {
+            $('#index_search').submit();
+        }
+    });
+</script>

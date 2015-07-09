@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{$webname}{$version}安装向导</title>
+        <link href="__PUBLIC__/css/style.css" rel="stylesheet" type="text/css" />
+        <script src="__PUBLIC__/js/jquery.js"></script>
+        <script src="__PUBLIC__/js/function.js"></script>
+    </head>
+    <body>
+        <div id="main">
+            <include file="Index/top"/>
+            <include file="Index/left"/>
+            <div id="main_right">
+                <div id="preg_box">
+                    <div id="page_info">
+                        <b>安装向导</b>
+                        <a>欢迎您使用{$webname}{$version}版，为了成功安装本系统，您需要</a>
+                        <a>PHP5+MYSQL数据库，对目录和数据库均有创建文件的权限。</a>
+                        <a>正确输入安装信息，点击安装即可完成安装，安装完成后，install.php文件将更名，如果需要重新配置，请在目录中查找并输入正确的文件名。</a>
+                        <a>本软件为网站研究所用，严禁用于商业用途，您必须在国家法律允许的范围内使用本系统。</a>
+                        <a style="font-weight:bold">检测系统</a>
+                        <if condition="allow_fopen">
+                            <a>允许远程连接：正确</a>
+                            <else /><a>允许远程连接：失败</a>
+                        </if>
+                        <if condition="writable">
+                            <a>文件目录可写。</a>
+                            <else /><a>文件目录权限不够。</a>
+                        </if>
+                    </div>
+                    <form  action="ac.php?ac=install" method="post"  id="install_form" style="margin-top:5px; width:98%; background:#E6F2F6; float:left; margin-left:1%; padding-top:10px; padding-bottom:10px" class="form">
+                        <if condition="allow_fopen&&writable">
+                            <div id="i_line"><div id="i_title">用户名：</div>
+                                <div id="i_tt"><input name="username" id="username" value="" style="width:200px;" maxlength="50" class="i_input" type=""><div id="i_help">请填写您所登录的用户名称。</div></div></div>
+                            <div id="i_line"><div id="i_title">登录密码：</div><div id="i_tt"><input name="password" id="password" value="" style="width:200px;" maxlength="50" class="i_input" type="password"><div id="i_help">请填写登录的密码。</div></div></div>
+                            <div id="i_line"><div id="i_title">确认密码：</div><div id="i_tt"><input name="re_password" id="re_password" value="" style="width:200px;" maxlength="50" class="i_input" type="password"><div id="i_help">确认密码。</div></div></div>
+                            <div id="i_line"><div id="i_title">电子邮件：</div><div id="i_tt"><input name="email" id="email" value="" style="width:200px;" maxlength="50" class="i_input" type="password"><div id="i_help">请输入您的电子邮件。</div></div></div>
+                            <div id="i_line"><div id="i_title">数据库地址：</div><div id="i_tt"><input name="db_url" id="db_url" value="" style="width:100px;" maxlength="50" class="i_input" type=""><div id="i_help">数据库的地址，一般使用本地数据库名称，如127.0.0.1或localhost。</div></div></div>
+                            <div id="i_line"><div id="i_title">数据库用户：</div><div id="i_tt"><input name="db_user" id="db_user" value="" style="width:150px;" maxlength="20" class="i_input" type=""><div id="i_help">请输入登录数据库的用户名，且此用户必须有创建表及创建数据的权限。</div></div></div>
+                            <div id="i_line"><div id="i_title">数据库密码：</div><div id="i_tt"><input name="db_pass" id="db_pass" value="" style="width:150px;" maxlength="20" class="i_input" type="password"><div id="i_help">登录到MYSQL数据的密码。</div></div></div>
+                            <div id="i_line"><div id="i_title">数据库名称：</div><div id="i_tt"><input name="db_database" id="db_database" value="" style="width:100px;" maxlength="20" class="i_input" type=""><div id="i_help">请输入您所使用的数据库名称。</div></div></div>
+                            <input name="" id="" value="下一步" onclick="install_submit();" style="margin-left:120px;" class="i_bt" type="button">
+                        </if>                        
+                    </form>
+                    <div id="ac"></div>
+                </div>
+                <div id="main_bt"></div>
+            </div>
+        </div><include file="Index/bottom"/>
+    </body>
+</html>
