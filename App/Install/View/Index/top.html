@@ -4,7 +4,7 @@
 </div>
 <div id="top">
     <div id="index_left"></div><div id="index">
-        <a id="home" href="<php>U('/Home/Index/index')</php>"></a>
+        <a id="home" href="{$home_url}"></a>
         <a class="index_a" href="preg_list.php">规则列表</a>
         <a class="index_a" href="data_list.php">数据管理</a>
         <a class="index_a" href="setup.php">程序设置</a>
@@ -17,7 +17,7 @@
     </div><div id="index_right"></div>
     <div id="index_bt">
         <div id="index_b_l"></div><div id="index_b_c">
-            <a href="<php>U('Home/Index/index')</php>">首 页</a>
+            <a href="{$home_url}">首 页</a>
             <notempty name="nav">
                 <foreach name="nav" item="vo" key="k" >
                     <span>＞</span><a href="{$vo}">{$k}</a>

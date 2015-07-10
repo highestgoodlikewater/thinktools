@@ -8,7 +8,9 @@ class InstallbaseController extends \Think\Controller {
         $webname = C('WEBNAME');
         $version = C('VERSION');        
         //
-        $this->assign(array(           
+        $this->assign(array(
+            'home_url'=>U('/Home/Index/index'),
+            'install_url'=>U('/Install/Index/index'),
             'webname' => $webname,
             'version' => $version
         ));

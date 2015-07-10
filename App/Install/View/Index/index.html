@@ -4,8 +4,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>{$webname}{$version}安装向导</title>
         <link href="__PUBLIC__/css/style.css" rel="stylesheet" type="text/css" />
-        <script src="__PUBLIC__/js/jquery.js"></script>
-        <script src="__PUBLIC__/js/function.js"></script>
+        <link href="__PUBLIC__/css/skins/chrome.css" rel="stylesheet" type="text/css" />
+        <script src="__PUBLIC__/js/jquery-1.10.2.min.js"></script>
+        <script src="__PUBLIC__/js/artDialog.js"></script>
+        <script src="__PUBLIC__/js/function.js"></script>        
     </head>
     <body>
         <div id="main">
@@ -40,7 +42,7 @@
                             <div id="i_line"><div id="i_title">数据库用户：</div><div id="i_tt"><input name="db_user" id="db_user" value="" style="width:150px;" maxlength="20" class="i_input" type=""><div id="i_help">请输入登录数据库的用户名，且此用户必须有创建表及创建数据的权限。</div></div></div>
                             <div id="i_line"><div id="i_title">数据库密码：</div><div id="i_tt"><input name="db_pass" id="db_pass" value="" style="width:150px;" maxlength="20" class="i_input" type="password"><div id="i_help">登录到MYSQL数据的密码。</div></div></div>
                             <div id="i_line"><div id="i_title">数据库名称：</div><div id="i_tt"><input name="db_database" id="db_database" value="" style="width:100px;" maxlength="20" class="i_input" type=""><div id="i_help">请输入您所使用的数据库名称。</div></div></div>
-                            <input name="" id="" value="下一步" onclick="install_submit();" style="margin-left:120px;" class="i_bt" type="button">
+                            <input id="next_step" value="下一步" style="margin-left:120px;" class="i_bt" type="button">
                         </if>                        
                     </form>
                     <div id="ac"></div>
@@ -49,4 +51,11 @@
             </div>
         </div><include file="Index/bottom"/>
     </body>
+    <script type="text/javascript">
+        $(document).ready(function(){            
+            $('#next_step').click(function(){
+                install_submit("{$dbtest}");
+            });
+        });
+    </script>
 </html>

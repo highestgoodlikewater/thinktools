@@ -1,5 +1,5 @@
 // JavaScript 文档
-function install_submit() {//安装数据的提交
+function install_submit(url) {//安装数据的提交
     var s = 1;
     $('#install_form .i_input').each(function () {
         var v = $(this).val();
@@ -17,7 +17,14 @@ function install_submit() {//安装数据的提交
         $('#re_password').css('border', '#cc0000 1px solid');
     }//检测密码是否一致
     if (s == 1) {
-        $('#ac').load('ac.php?ac=db_test', {'db_url': $('#db_url').val(), 'db_user': $('#db_user').val(), 'db_pass': $('#db_pass').val(), 'db_database': $('#db_database').val()});
+        $.getJSON(url, {'db_url': $('#db_url').val(), 'db_user': $('#db_user').val(), 'db_pass': $('#db_pass').val(), 'db_database': $('#db_database').val()},
+        function(data){            
+            if(data.status == 1){                
+                art.dialog({time:3000,content:data.msg});                
+            }else{
+                $('#install_form').submit();
+            }
+        });
     }//检测数据库链接设置是否正确
 }
 function set_submit() {//设置
