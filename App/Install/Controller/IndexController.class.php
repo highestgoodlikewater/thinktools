@@ -23,7 +23,8 @@ class IndexController extends InstallbaseController {
         }
         //视图赋值
         $this->assign(array(
-            'dbtest'=>U('/Install/Index/dbtest'),           
+            'dbtest'=>U('/Install/Index/dbtest'),
+            'install_url'=>U('/Install/Index/install'),
             'allow_fopen' => $allow_fopen,
             'writable' => $writable
         ));
@@ -49,6 +50,13 @@ class IndexController extends InstallbaseController {
         } catch (Exception $e) {
             $this->ajaxReturn(array('status' => 1, 'msg' => $e->getMessage()), 'JSON');
         }
+    }
+    
+    /**
+     * 安装
+     */
+    public function install(){
+        
     }
 
 }

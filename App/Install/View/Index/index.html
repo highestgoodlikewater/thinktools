@@ -31,7 +31,7 @@
                             <else /><a>文件目录权限不够。</a>
                         </if>
                     </div>
-                    <form  action="ac.php?ac=install" method="post"  id="install_form" style="margin-top:5px; width:98%; background:#E6F2F6; float:left; margin-left:1%; padding-top:10px; padding-bottom:10px" class="form">
+                    <form  action="{$install_url}" method="post"  id="install_form" style="margin-top:5px; width:98%; background:#E6F2F6; float:left; margin-left:1%; padding-top:10px; padding-bottom:10px" class="form">
                         <if condition="allow_fopen&&writable">
                             <div id="i_line"><div id="i_title">用户名：</div>
                                 <div id="i_tt"><input name="username" id="username" value="" style="width:200px;" maxlength="50" class="i_input" type=""><div id="i_help">请填写您所登录的用户名称。</div></div></div>
