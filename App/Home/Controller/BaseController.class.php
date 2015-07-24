@@ -14,8 +14,8 @@ class BaseController  extends Controller{
      * 检查是否安装
      */
     public function _initialize(){       
-        if(!C('INSTALLED')){                                 
-            $this->redirect('Install/Index/index');
-        }
+//        if(!C('INSTALLED')){                                 
+//            $this->redirect('Install/Index/index');
+//        }
     }
 }

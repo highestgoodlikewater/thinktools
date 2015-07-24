@@ -58,5 +58,9 @@ class IndexController extends InstallbaseController {
     public function install(){
         
     }
+    
+    public function test(){
+        $this->display();
+    }
 
 }
