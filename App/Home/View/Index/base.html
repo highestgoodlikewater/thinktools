@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <title>think tools</title>
+        <meta charset="UTF-8">
+        <!--在移动设备浏览器上，通过为视口（viewport）设置 meta 属性为 user-scalable=no 可以禁用其缩放（zooming）功能
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="__PUBLIC__/css/skins/chrome.css" rel="stylesheet" type="text/css" />
+        <link href="__PUBLIC__/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="__PUBLIC__/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+        <link href="__PUBLIC__/css/index.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="__PUBLIC__/js/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/bootstrap.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/artDialog.js"></script>        
+    </head>
+    <body>
+        <!-- .container类用于固定宽度并支持响应式布局的容器
+             .container-fluid 类用于 100% 宽度，占据全部视口（viewport）的容器
+        -->
+        <div class="container">                
+            <!-- Nav -->
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="{:U('/Home/Index/index')}" >首页</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false" role="buuton">生活类<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{:U('/Home/Index/delivery')}" aria-controls="delivery" role="tab" >快递</a></li>
+                            </ul>
+                        </li>                    
+                    </ul>
+                </div>
+            </nav>
+            <div class="panel panel-default">
+                <div class="panel-body">                                
+                    <block name="content">
+                        
+                    </block>         
+                </div>
+            </div>            
+        </div>
+    </body>
+    <script type="text/javascript">
+        var action = '__ACTION__';
+        $('.navbar li').removeClass('active');
+        var menu_a = $('.navbar li a[href="'+action+'.html"]');
+        if(menu_a.parent().parent().hasClass('dropdown-menu')){
+            menu_a.parent().parent().parent().addClass('active');
+        }else{
+            menu_a.parent().addClass('active');
+        }        
+    </script>
+    <block name="script">
+
+    </block>
+</html>

@@ -6,6 +6,7 @@ return array(
     'URL_MODEL' => 2,    
     'DELIVERY_API'=>array(       
         'ZT'=>'http://www.zto.cn/GuestService/Bill',//中通快递查询接口
-        'kuaidi100'=>'http://www.kuaidi100.com/query'
+        'KD100'=>'http://www.kuaidi100.com/query',
+        'KD100_TYPE_SEARCH'=>'www.kuaidi100.com/autonumber/autoComNum'
     )
 );
