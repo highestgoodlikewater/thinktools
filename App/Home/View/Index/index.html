@@ -1,17 +1,33 @@
 <extend name="base" />
 <block name="content">
-    <div class="center-block" style=" margin-top: 300px; margin-left: 300px;">
+    <div class="center-block" style=" margin-top: 300px; margin-left: 300px;">        
         <div class="col-lg-6">                        
             <div class="input-group">
                 <div class="input-group-btn">
                     <select class="form-control" style="width:100px;">
-                        <option value="baidu">百度</option>
-                        <option value="google">Google</option>
+                        <option value="baidu" url="https://www.baidu.com/s?wd=">百度</option>
+                        <option value="google" url="https://www.google.com/?gws_rd=ssl#q=">谷歌</option>
+                        <option value="bing" url="https://www.bing.com/search?q=">必应</option>
+                        <option value="aitaobao" url="http://ai.taobao.com/search/index.htm?key=">爱淘宝</option>
                     </select>
                 </div><!-- /btn-group -->
-                <input type="text" class="form-control" aria-label="...">
-                <span class="input-group-btn"><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span>搜 索</button></span>
+                <input type="text" class="form-control" aria-label="..." name="search_value">
+                <span class="input-group-btn"><button type="button" class="btn btn-primary" id="search_btn"><span class="glyphicon glyphicon-search"></span>搜 索</button></span>
             </div><!-- /input-group -->                                                  
-        </div>                                  
+        </div>       
     </div>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //搜索集成
+            $('#search_btn').click(function () {
+                var wd = $('input[name="search_value"]').val();
+                if(wd != ''){
+                    var url = $('option:selected').attr('url');
+                    window.open(url+wd);
+                }
+            });
+        });
+    </script>
 </block>
