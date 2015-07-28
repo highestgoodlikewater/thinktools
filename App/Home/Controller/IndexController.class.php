@@ -17,6 +17,10 @@ class IndexController extends BaseController {
     public function idservice() {
         $this->display();
     }
+    
+    public function ipservice(){
+        $this->delivery();
+    }
 
     /**
      * 快递查询
@@ -84,8 +88,19 @@ class IndexController extends BaseController {
     public function search_id() {
         $id = I('id');
         $id_api = C('ID_API');
-        $id_apikey = C('ID_APIKEY');
+        $id_apikey = C('BAIDU_APIKEY');
         $json = \Org\HTTP::get($id_api, array( 'id' => $id),array('apikey:'.$id_apikey));
+        echo $json;
+    }
+    
+    /**
+     * ip地址查询
+     */
+    public function search_ip(){
+        $ip = I('ip');
+        $ip_api = C('IP_API');
+        $apikey = C('BAIDU_APIKEY');
+        $json = \Org\HTTP::get($ip_api, array( 'ip' => $ip),array('apikey:'.$apikey));
         echo $json;
     }
 
