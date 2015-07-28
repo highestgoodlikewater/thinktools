@@ -21,6 +21,10 @@ class IndexController extends BaseController {
     public function ipservice(){
         $this->delivery();
     }
+    
+    public function tel(){
+        $this->display();
+    }
 
     /**
      * 快递查询
@@ -101,6 +105,17 @@ class IndexController extends BaseController {
         $ip_api = C('IP_API');
         $apikey = C('BAIDU_APIKEY');
         $json = \Org\HTTP::get($ip_api, array( 'ip' => $ip),array('apikey:'.$apikey));
+        echo $json;
+    }
+    
+    /**
+     * 电话号码归属地查询
+     */
+    public function search_tel(){
+        $tel = I('tel');
+        $tel_api = C('TEL_API');
+        $apikey = C('BAIDU_APIKEY');
+        $json = \Org\HTTP::get($tel_api, array( 'tel' => $tel),array('apikey:'.$apikey));
         echo $json;
     }
 

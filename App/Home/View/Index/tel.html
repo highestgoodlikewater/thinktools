@@ -1,0 +1,39 @@
+<extend name="base" />
+<block name="content"> 
+    <div class="center-block"  style=" margin-top: 300px; margin-left: 300px;">
+        <form class="form-inline" id="tel_search_form">
+            <div class="form-group">                            
+                <label for="tel">手机号码：</label>                                                           
+                <input type="text" class="form-control" id="tel" placeholder="手机号码">                         
+            </div>
+            <button type="submit" class="btn btn-primary">查询</button>
+        </form>
+        <div id="tel_search_result" class="center-block">
+
+        </div>
+    </div>    
+</block>
+<block name="script">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //快递单号查询
+            $('#tel_search_form').submit(function () {
+                var tel = $('#tel').val();
+                if (tel == '') {
+                    art.dialog({content: '请输入IP！'});
+                    return false;
+                }
+                $.getJSON('{:U("/Home/Index/search_tel")}', {tel:tel}, function (data) {
+                    if (data.errNum !=0) {
+                        $('#tel_search_result').html(data.retMsg);
+                        return;
+                    }
+                    var result = data.retData;            
+                    var html = '<ul><li>号码：'+result.telString+'</li><li>地址：'+result.province+'</li><li>运营商：'+result.carrier+'</li></ul>';                   
+                    $('#tel_search_result').html(html);
+                });
+                return false;
+            });
+        });
+    </script>
+</block>
