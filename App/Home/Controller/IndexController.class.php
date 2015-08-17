@@ -25,6 +25,10 @@ class IndexController extends BaseController {
     public function tel(){
         $this->display();
     }
+    
+    public function weather(){
+        $this->display();
+    }
 
     /**
      * 快递查询
@@ -37,9 +41,9 @@ class IndexController extends BaseController {
             if (empty($json)) {
                 throw new Exception('快递单号不正确！');
             }
-            $result = json_decode($json, TRUE);
+            $result = json_decode($json, TRUE);            
             if (empty($result['auto']) || !is_array($result['auto'])) {
-                throw new Exception('返回数据格式错误！');
+                throw new Exception('没有查询到相关数据！');
             }
             $noCount = 0;
             $type = '';
@@ -50,7 +54,7 @@ class IndexController extends BaseController {
                 }
             }
             if (empty($type)) {
-                throw new Exception('没有查询到相关数据');
+                throw new Exception('没有查询到相关数据!');
             }
             $delivery_api = C('DELIVERY_API.KD100');
             $re = \Org\HTTP::post($delivery_api, array('type' => $type, 'postid' => $postid));
@@ -118,5 +122,7 @@ class IndexController extends BaseController {
         $json = \Org\HTTP::get($tel_api, array( 'tel' => $tel),array('apikey:'.$apikey));
         echo $json;
     }
+    
+    
 
 }

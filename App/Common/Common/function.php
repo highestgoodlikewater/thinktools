@@ -1,7 +1,5 @@
 <?php
 function debug($var){
-    echo '<pre/>';
-    var_dump($var);
-    die();
+    trace($var);
 }
 
