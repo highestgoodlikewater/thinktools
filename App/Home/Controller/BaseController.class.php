@@ -1,21 +1,14 @@
 <?php
 
-/**
- * 
- *
- * @author eyslce@foxmail.com
- * @filename BaseController.class.php
- * @since 2015-7-8
- */
 namespace Home\Controller;
-use Think\Controller;
-class BaseController  extends Controller{
+
+class BaseController  extends Think\Controller{
     /**
-     * 检查是否安装
+     * 检查是否登录
      */
     public function _initialize(){       
-//        if(!C('INSTALLED')){                                 
-//            $this->redirect('Install/Index/index');
-//        }
+        if(empty(session(C('SESSION_KEY')))){                                 
+            $this->redirect('Home/Public/login');
+        }
     }
 }
