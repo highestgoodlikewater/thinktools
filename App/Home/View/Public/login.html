@@ -1,0 +1,31 @@
+<extend name="base" />
+<block name="header_script">
+    <script type="text/javascript" src="__PUBLIC__/js/video.js"></script>
+</block>
+<block name="body">        
+    <div class="container"> 
+        <video class="video-js" preload="auto" poster="__PUBLIC__/image/poster.jpg" data-setup="{}">
+            <source src="__PUBLIC__/swf/big_buck_bunny.mp4" type="video/mp4">
+            <source src="__PUBLIC__/swf/big_buck_bunny.webm" type="video/webm">
+        </video>            
+        <div class="login-form">
+            <div class="form-group">
+                <input type="text" id="login-name" placeholder="Enter your name" value="" class="form-control login-field">
+                <label for="login-name" class="login-field-icon fui-user"></label>
+            </div>
+            <div class="form-group">
+                <input type="password" id="login-pass" placeholder="Password" value="" class="form-control login-field">
+                <label for="login-pass" class="login-field-icon fui-lock"></label>
+            </div>
+            <a href="#" class="btn btn-primary btn-lg btn-block">{$Think.lang.log_in}</a>
+            <a href="#" class="login-link">{$Think.lang.forgot_passwd}</a>
+            <a href="/Home/Public/register" class="login-link">{$Think.lang.not_register}</a>
+        </div>
+    </div>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        videojs.options.flash.swf = "__PUBLIC__/swf/video-js.swf"
+    </script>
+</block>
+</html>

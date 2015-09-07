@@ -8,11 +8,23 @@
         -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="__PUBLIC__/css/skins/chrome.css" rel="stylesheet" type="text/css" />
-        <link href="__PUBLIC__/css/bootstrap.css" rel="stylesheet" type="text/css" />
-        <link href="__PUBLIC__/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />        
+        <link href="__PUBLIC__/css/bootstrap.css" rel="stylesheet" type="text/css" />       
+        <link href="__PUBLIC__/css/flat-ui.css" rel="stylesheet">        
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+        <!--[if lt IE 9]>
+          <script src="__PUBLIC__/js/html5shiv.js"></script>
+          <script src="__PUBLIC__/js/respond.min.js"></script>
+        <![endif]-->
         <script type="text/javascript" src="__PUBLIC__/js/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="__PUBLIC__/js/bootstrap.js"></script>
-        <script type="text/javascript" src="__PUBLIC__/js/artDialog.js"></script>        
+        <script type="text/javascript" src="__PUBLIC__/js/flat-ui.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/artDialog.js"></script>
+        <style>
+      body {
+        min-height: 2000px;
+        padding-top: 70px;
+      }
+    </style>
     </head>
     <body>
         <!-- .container类用于固定宽度并支持响应式布局的容器
@@ -20,7 +32,7 @@
         -->
         <div class="container-fluid" style="padding: 0;">                
             <!-- Nav -->
-            <nav class="navbar navbar-default navbar-fixed-top">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                 <div class="container-fluid">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="{:U('/Home/Index/index')}" >首页</a></li>
@@ -41,7 +53,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">                                
                     <block name="content">
-                        
+
                     </block>         
                 </div>
             </div>            
@@ -50,12 +62,12 @@
     <script type="text/javascript">
         var action = '__ACTION__';
         $('.navbar li').removeClass('active');
-        var menu_a = $('.navbar li a[href="'+action+'.html"]');
-        if(menu_a.parent().parent().hasClass('dropdown-menu')){
+        var menu_a = $('.navbar li a[href="' + action + '.html"]');
+        if (menu_a.parent().parent().hasClass('dropdown-menu')) {
             menu_a.parent().parent().parent().addClass('active');
-        }else{
+        } else {
             menu_a.parent().addClass('active');
-        }        
+        }
     </script>
     <block name="script">
 
