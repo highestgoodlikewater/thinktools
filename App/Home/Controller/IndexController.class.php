@@ -29,7 +29,7 @@ class IndexController extends BaseController {
     public function weather(){
         $this->display();
     }
-
+       
     /**
      * 快递查询
      */

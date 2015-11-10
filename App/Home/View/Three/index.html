@@ -1,18 +1,19 @@
 <extend name="Index:base" />
 <block name="content">
-</block>
-<block name="script">
+<div id="container_3d" style="float: right;margin-top: -665px;">
 <script src="__PUBLIC__/js/three.min.js"></script>
 <script>
+       var container_width = window.innerWidth - $('div.col-lg-2').outerWidth(true)-20;
+       var container_height = $('div.col-lg-2').innerHeight();
         //场景
         var scene = new THREE.Scene();
         //相机
-        var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+        var camera = new THREE.PerspectiveCamera(75, container_width/container_height, 0.1, 1000);
         //渲染器
         var renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setSize(container_width, container_height);
         
-        document.body.appendChild(renderer.domElement);
+        $('#container_3d').append(renderer.domElement);
         var geometry = new THREE.CubeGeometry(1,1,1);
         var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
         var cube = new THREE.Mesh(geometry, material); scene.add(cube);
@@ -24,5 +25,6 @@
             renderer.render(scene, camera);
         }
         render();
-    </script>
+</script>
+    </div>
 </block>
