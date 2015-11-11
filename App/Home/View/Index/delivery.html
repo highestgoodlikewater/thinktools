@@ -1,5 +1,16 @@
 <extend name="base" />
-<block name="content"> 
+<block name="content">
+   <div id="content" class="col-lg-10 col-sm-10">
+    <div>
+        <ul class="breadcrumb">
+            <li>
+                <a href="#">首页</a>
+            </li>
+            <li>
+                <a href="#">快递查询</a>
+            </li>
+        </ul>
+    </div>
     <div class="center-block"  style=" margin-top: 300px; margin-left: 300px;">
         <form class="form-inline" id="delivery_search_form">
             <div class="form-group">                            
@@ -11,7 +22,8 @@
         <div id="delivery_search_result">
 
         </div>
-    </div>    
+    </div>
+<div/>
 </block>
 <block name="script">
     <script type="text/javascript">
