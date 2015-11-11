@@ -41,7 +41,8 @@
                         return;
                     }
                     var result = data.retData;            
-                    var html = '<ul><li>号码：'+result.telString+'</li><li>地址：'+result.province+'</li><li>运营商：'+result.carrier+'</li></ul>';                   
+                    var html = '<ul><li>号码：'+result.phone+'</li><li>地址：'+result.province
+                            +result.city+'</li><li>运营商：'+result.supplier+'</li><li>类型:'+result.suit+'</li></ul>';                   
                     $('#tel_search_result').html(html);
                 });
                 return false;
