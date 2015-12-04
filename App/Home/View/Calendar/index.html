@@ -1,0 +1,78 @@
+<extend name="Index:base" />
+<block name="content"> 
+    <div id="content" class="col-lg-10 col-sm-10">
+        <!-- content starts -->
+        <div>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Calendar</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="box col-md-12">
+                <div class="box-inner">
+                    <div class="box-header well" data-original-title="">
+                        <h2><i class="glyphicon glyphicon-calendar"></i> Calendar</h2>
+                        <!--<div class="box-icon">
+                            <a href="#" class="btn btn-setting btn-round btn-default"><i
+                                    class="glyphicon glyphicon-cog"></i></a>
+                            <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                                    class="glyphicon glyphicon-chevron-up"></i></a>
+                            <a href="#" class="btn btn-close btn-round btn-default"><i
+                                    class="glyphicon glyphicon-remove"></i></a>
+                        </div>-->
+                    </div>
+                    <div class="box-content">
+                        <div id="calendar"></div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/row-->
+
+        <!-- content ends -->
+    </div><!--/#content.col-md-0-->
+</block>
+<block name="script">
+    <script type="text/javascript">
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        if (month < 10) {
+            month = '0' + month;
+        }
+        if (day < 10) {
+            day = '0' + day;
+        }
+        var today = year + '-' + month + '-' + day;
+        $('#calendar').fullCalendar({
+            buttonText: {
+                today: '今天',
+                month: '月',
+                week: '周',
+                day: '日'
+            },
+            monthNames:['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+            monthNamesShort:['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+            dayNames:['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+            dayNamesShort:['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            events: [
+                {
+                    title: 'Today',
+                    start: today
+                }
+            ]
+        });
+    </script>
+</block>
