@@ -135,5 +135,12 @@ class IndexController extends BaseController {
         $pinyin = \Org\Pinyin::trans($hz, array('accent' => FALSE));
         $this->ajaxReturn(array('status'=>0,'result'=>$pinyin),'JSON');
     }
+    
+    /**
+     * 公交线路
+     */
+    public function bus() {
+        $this->display();
+    }
 
 }
