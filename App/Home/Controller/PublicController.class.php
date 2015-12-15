@@ -35,5 +35,12 @@ class PublicController extends \Think\Controller {
     public function register() {
         
     }
+    
+    /**
+     * 错误页面
+     */
+    public function err(){
+        $this->display('error');
+    }
 
 }
