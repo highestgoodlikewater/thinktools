@@ -1,0 +1,48 @@
+<extend name="base" />
+<block name="content">
+   <div id="content" class="col-lg-10 col-sm-10">
+    <div>
+        <ul class="breadcrumb">
+            <li>
+                <a href="#">首页</a>
+            </li>
+            <li>
+                <a href="#">汉字转拼音</a>
+            </li>
+        </ul>
+    </div>
+    <div class="center-block"  style=" margin-top: 300px;">
+        <form class="form-inline" id="to_pinyin_form">
+            <div class="form-group">                            
+                <label for="hz">请输入需要转换的汉字：</label>                                                           
+                <input type="text" class="form-control" id="hz" placeholder="请输入需要转换的汉字">                         
+            </div>
+            <button type="submit" class="btn btn-primary">转换</button>
+        </form>
+        <div id="delivery_search_result">
+
+        </div>
+    </div>
+<div/>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        $(document).ready(function () {            
+            $('#to_pinyin_form').submit(function () {
+                var hz = $('#hz').val();
+                if (hz == '') {
+                    art.dialog({content: '请输入需要转换的汉字！'});
+                    return false;
+                }
+                $.getJSON('{:U("/Home/Index/topinyin")}', {hz:hz}, function (data) {
+                    if (data.status != '0') {
+                        $('#delivery_search_result').html('抱歉，没有查到相关数据！');
+                        return;
+                    }                    
+                    $('#delivery_search_result').html('<p>'+data.result+'</p>');
+                });
+                return false;
+            });
+        });
+    </script>
+</block>

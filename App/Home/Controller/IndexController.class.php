@@ -17,19 +17,19 @@ class IndexController extends BaseController {
     public function idservice() {
         $this->display();
     }
-    
-    public function ipservice(){
+
+    public function ipservice() {
         $this->delivery();
     }
-    
-    public function tel(){
+
+    public function tel() {
         $this->display();
     }
-    
-    public function weather(){
+
+    public function weather() {
         $this->display();
     }
-       
+
     /**
      * 快递查询
      */
@@ -41,7 +41,7 @@ class IndexController extends BaseController {
             if (empty($json)) {
                 throw new Exception('快递单号不正确！');
             }
-            $result = json_decode($json, TRUE);            
+            $result = json_decode($json, TRUE);
             if (empty($result['auto']) || !is_array($result['auto'])) {
                 throw new Exception('没有查询到相关数据！');
             }
@@ -97,32 +97,43 @@ class IndexController extends BaseController {
         $id = I('id');
         $id_api = C('ID_API');
         $id_apikey = C('BAIDU_APIKEY');
-        $json = \Org\HTTP::get($id_api, array( 'id' => $id),array('apikey:'.$id_apikey));
+        $json = \Org\HTTP::get($id_api, array('id' => $id), array('apikey:' . $id_apikey));
         echo $json;
     }
-    
+
     /**
      * ip地址查询
      */
-    public function search_ip(){
+    public function search_ip() {
         $ip = I('ip');
         $ip_api = C('IP_API');
         $apikey = C('BAIDU_APIKEY');
-        $json = \Org\HTTP::get($ip_api, array( 'ip' => $ip),array('apikey:'.$apikey));
+        $json = \Org\HTTP::get($ip_api, array('ip' => $ip), array('apikey:' . $apikey));
         echo $json;
     }
-    
+
     /**
      * 电话号码归属地查询
      */
-    public function search_tel(){
+    public function search_tel() {
         $tel = I('tel');
         $tel_api = C('TEL_API');
         $apikey = C('BAIDU_APIKEY');
-        $json = \Org\HTTP::get($tel_api, array( 'tel' => $tel),array('apikey:'.$apikey));
+        $json = \Org\HTTP::get($tel_api, array('tel' => $tel), array('apikey:' . $apikey));
         echo $json;
     }
-    
-    
+
+    public function pinyin() {
+        $this->display();
+    }
+
+    /**
+     * 汉字转拼音
+     */
+    public function topinyin() {
+        $hz = I('hz');
+        $pinyin = \Org\Pinyin::trans($hz, array('accent' => FALSE));
+        $this->ajaxReturn(array('status'=>0,'result'=>$pinyin),'JSON');
+    }
 
 }

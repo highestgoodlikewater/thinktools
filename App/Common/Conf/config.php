@@ -17,4 +17,6 @@ return array(
     'ID_API' => 'http://apis.baidu.com/apistore/idservice/id', //身份证查询接口
     'IP_API' => 'http://apis.baidu.com/apistore/iplookupservice/iplookup', //ip接口
     'TEL_API' => 'http://apis.baidu.com/apistore/mobilephoneservice/mobilephone', //电话号码归属地查询
+    'Weather_City_Info'=>'http://apis.baidu.com/apistore/weatherservice/cityinfo',//城市信息列表
+    'Weather_City_List'=>'http://apis.baidu.com/apistore/weatherservice/citylist',//可用城市列表
 );

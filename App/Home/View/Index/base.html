@@ -9,7 +9,7 @@
 
         <!-- The styles -->
         <link id="bs-css" href="__PUBLIC__/css/bootstrap-cerulean.min.css" rel="stylesheet">
-
+        <link id="bs-css" href="__PUBLIC__/css/skins/blue.css" rel="stylesheet">
         <link href="__PUBLIC__/css/charisma-app.css" rel="stylesheet">
         <link href='__PUBLIC__/bower_components/fullcalendar/fullcalendar.css' rel='stylesheet'>
         <link href='__PUBLIC__/bower_components/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print'>
@@ -27,7 +27,7 @@
 
         <!-- jQuery -->
         <script src="__PUBLIC__/bower_components/jquery/jquery.min.js"></script>
-
+        <script src="__PUBLIC__/js/artDialog.js"></script>
         <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -92,8 +92,9 @@
                             <li><a href="{:U('/Home/Index/delivery')}" >快递查询</a></li>
                             <li><a href="{:U('/Home/Index/idservice')}" >身份证查询</a></li>
                             <li><a href="{:U('/Home/Index/ipservice')}" >IP地址查询</a></li>
+                            <li><a href="{:U('/Home/Index/tel')}" >号码归属地查询</a></li>
                             <li class="divider"></li>
-                            <li><a href="{:U('/Home/Index/tel')}" >号码归属地查询</a></li>                            
+                            <li><a href="{:U('/Home/Index/pinyin')}" >汉字转拼音</a></li>                            
                         </ul>
                     </li>
                     <li><a href="{:U('/Home/Calendar/index')}" >日历</a></li>
@@ -218,7 +219,7 @@
         <!-- history.js for cross-browser state change on ajax -->
         <script src="__PUBLIC__/js/jquery.history.js"></script>
         <!-- application script for Charisma demo -->
-        <script src="__PUBLIC__/js/charisma.js"></script>
+        <script src="__PUBLIC__/js/charisma.js"></script>        
     </body>
     <block name="script"></block>
 </html>
